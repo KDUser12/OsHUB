@@ -17,25 +17,17 @@ class QueryResult:
                                 by the user.
         :param option:      --  STR value containing the option.
 
-        :return Value:
-        Nothing.
+        :return:            --  None
         """
 
-        self.command    = command
-        self.option     = option
+        self.command = command
+        self.option = option
+        self.format_output()
 
-        self.__str__()
+    def format_output(self):
+        """Format the output string.
 
-        return
-
-    def __str__(self):
-        """Convert Object To String.
-
-        :keyword Arguments:
-        self                    -- This object.
-
-        :return Value:
-        Nicely formatted string to get information about this object.
+        :return:    Formatted string with information about this object.
         """
 
         if self.command == 11:
@@ -44,19 +36,25 @@ class QueryResult:
             print(
                 "\033[31mAvertissement - Si vous décidez d’accéder aux outils / sites que nous vous proposons votre image de"
                 " la réalité peut changer pour toujours (non recommandé pour les personnes sensibles.)\033[0m")
-            if not input("Veuillez choisir une option [y] / [n]") == "y":
+            if not input("Please choose an option [y] / [n]") == "y":
                 return
 
-
-        print(f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Tools :")
+        formatted_output = f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Tools :"
 
         for i in tools[self.command]:
-            print(i)
+            formatted_output += f"\n{i}"
 
-        print(f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Sites :")
+        formatted_output += f"\n\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Sites :"
 
         for i in sites[self.command]:
-            print(i)
+            formatted_output += f"\n{i}"
 
-        return
+        print(formatted_output)
+
+    def __str__(self):
+        """Convert Object To String.
+
+        :return: Formatted string with information about this object.
+        """
+        return f"QueryResult(command={self.command}, option={self.option})"
 

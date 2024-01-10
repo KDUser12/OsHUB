@@ -11,8 +11,6 @@ from utils.version import get_version
 from utils.github_version_checker import get_latest_version
 from result import QueryResult
 import os
-import platform
-import sys
 import shutil
 
 commands = {

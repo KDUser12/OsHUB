@@ -107,7 +107,7 @@ def main():
 
     if latest_version_message:
         print(latest_version_message)
-        # return
+        return
 
     center_text(f"""\033[34m
 ██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 

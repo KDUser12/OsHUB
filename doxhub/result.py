@@ -38,6 +38,16 @@ class QueryResult:
         Nicely formatted string to get information about this object.
         """
 
+        if self.command == 11:
+            print("\033[31mWarning - If you decide to access the tools/sites we offer you your image of the"
+                  "reality may change forever (not recommended for sensitive people.)\033[0m")
+            print(
+                "\033[31mAvertissement - Si vous décidez d’accéder aux outils / sites que nous vous proposons votre image de"
+                " la réalité peut changer pour toujours (non recommandé pour les personnes sensibles.)\033[0m")
+            if not input("Veuillez choisir une option [y] / [n]") == "y":
+                return
+
+
         print(f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Tools :")
 
         for i in tools[self.command]:

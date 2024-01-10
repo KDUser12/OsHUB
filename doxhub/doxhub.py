@@ -69,8 +69,6 @@ class Commands:
         else:
             QueryResult(self.prompt, commands[self.prompt])
 
-
-
     def find_command(self):
         try:
             self.prompt = int(self.prompt)

@@ -86,7 +86,7 @@ def clear_output():
 
 
 def main():
-    version = get_version((1,0,0,'final', 0))
+    version = get_version((0,1,0,'beta', 0))
     clear_output()
     center_text(f"""\033[34m
 ██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 

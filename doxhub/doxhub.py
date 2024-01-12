@@ -9,8 +9,6 @@ information about a target person.
 
 from utils.version import get_version
 import os
-import platform
-import sys
 import shutil
 from result import QueryResult
 from utils.github_version_checker import get_latest_version

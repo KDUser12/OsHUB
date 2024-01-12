@@ -104,7 +104,7 @@ def clear_output():
 
 
 def main():
-    version = get_version((1,1.1,'final', 0))
+    version = get_version((1,1,1,'final', 0))
     latest_version_message = get_latest_version("DoxHub", f"v{version}")
     clear_output()
 

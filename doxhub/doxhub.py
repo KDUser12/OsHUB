@@ -13,6 +13,7 @@ import platform
 import sys
 import shutil
 from result import QueryResult
+from utils.github_version_checker import get_latest_version
 
 commands = {
     1: 'Username',
@@ -89,15 +90,21 @@ def clear_output():
 
 
 def main():
-    version = get_version((1,0,0,'final', 0))
+    version = get_version((1,1,0,'final', 0))
+    latest_version_message = get_latest_version("DoxHub", f"v{version}")
     clear_output()
+
+    if latest_version_message:
+        print(latest_version_message)
+        return
+
     center_text(f"""\033[34m
 ██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 
 ██╔══██╗██╔═══██╗╚██╗██╔╝██║  ██║██║   ██║██╔══██╗
 ██║  ██║██║   ██║ ╚███╔╝ ███████║██║   ██║██████╔╝
 ██║  ██║██║   ██║ ██╔██╗ ██╔══██║██║   ██║██╔══██╗
 ██████╔╝╚██████╔╝██╔╝ ██╗██║  ██║╚██████╔╝██████╔╝
-╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝
+╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
 \033[0m""")
 
     print(f"\033[34m[M] Made by KDUser\n[?] {version} Changelog\033[0m\n\n")

@@ -35,13 +35,24 @@ commands = {
 
 
 def about_command():
-    print(f"""DoxHub Module v{get_version((1,0,0,'final', 0))}
+    """
+    Display information about the DoxHub module.
+
+    :return:    None
+    """
+    print(f"""DoxHub Module
 
 This module contains a list of tools and sites to find personal
 information about a target person.""")
 
 
 def center_text(text):
+    """
+    Center the provided text in the terminal.
+
+    :param text:    Text to be centered
+    :return:        None
+    """
     lines = text.split('\n')
     terminal_width, _ = shutil.get_terminal_size()
 
@@ -57,7 +68,7 @@ class Commands:
 
     def call_command(self):
         while True:
-            self.prompt = input("\n\033[34m┌──(KDUser@DoxHub)-[~]\n└─$ \033[0m")
+            self.prompt = input("\n\033[34m┌──(KDUser12@DoxHub)-[~]\n└─$ \033[0m")
             self.get_command()
 
     def get_command(self):
@@ -67,16 +78,14 @@ class Commands:
         if self.prompt == 13:
             about_command()
         elif self.prompt == 14:
-            sys.exit(0)
+            exit(0)
         else:
             QueryResult(self.prompt, commands[self.prompt])
-
-
 
     def find_command(self):
         try:
             self.prompt = int(self.prompt)
-            if self.prompt in commands or self.prompt == 0:
+            if self.prompt in commands:
                 return True
             else:
                 print("\033[31m[\033[0m!\033[31m]\033[0m Please enter a valid value.")
@@ -86,11 +95,16 @@ class Commands:
             return False
 
 def clear_output():
-    os.system('cls' if platform == 'Windows' else 'clear')
+    """
+    Clear the terminal screen.
+
+    :return: None
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():
-    version = get_version((1,1,0,'final', 0))
+    version = get_version((1,0,0,'final', 0))
     latest_version_message = get_latest_version("DoxHub", f"v{version}")
     clear_output()
 

@@ -48,7 +48,9 @@ sites = {
         "https://documentingreality.com"
     },
     12: {
-        "https://doxbin.com",
-        "https://osintframework.com"
+
+    },
+    13: {
+        "https://doxbin.com"
     }
 }

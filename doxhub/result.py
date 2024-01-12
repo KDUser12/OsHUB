@@ -17,44 +17,36 @@ class QueryResult:
                                 by the user.
         :param option:      --  STR value containing the option.
 
-        :return:            --  None
+        :return Value:
+        Nothing.
         """
 
-        self.command = command
-        self.option = option
-        self.format_output()
+        self.command    = command
+        self.option     = option
 
-    def format_output(self):
-        """Format the output string.
+        self.__str__()
 
-        :return:    Formatted string with information about this object.
-        """
-
-        if self.command == 11:
-            print("\033[31mWarning - If you decide to access the tools/sites we offer you your image of the"
-                  "reality may change forever (not recommended for sensitive people.)\033[0m")
-            print(
-                "\033[31mAvertissement - Si vous décidez d’accéder aux outils / sites que nous vous proposons votre image de"
-                " la réalité peut changer pour toujours (non recommandé pour les personnes sensibles.)\033[0m")
-            if not input("Please choose an option [y] / [n]") == "y":
-                return
-
-        formatted_output = f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Tools :"
-
-        for i in tools[self.command]:
-            formatted_output += f"\n{i}"
-
-        formatted_output += f"\n\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Sites :"
-
-        for i in sites[self.command]:
-            formatted_output += f"\n{i}"
-
-        print(formatted_output)
+        return
 
     def __str__(self):
         """Convert Object To String.
 
-        :return: Formatted string with information about this object.
+        :keyword Arguments:
+        self                    -- This object.
+
+        :return Value:
+        Nicely formatted string to get information about this object.
         """
-        return f"QueryResult(command={self.command}, option={self.option})"
+
+        print(f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Tools :")
+
+        for i in tools[self.command]:
+            print(i)
+
+        print(f"\n\033[34m[\033[0m*\033[34m]\033[0m {self.option} - Sites :")
+
+        for i in sites[self.command]:
+            print(i)
+
+        return
 

@@ -99,7 +99,7 @@ Here is the list of prerequisites you will need to have before installing the mo
 <!-- LICENSE -->
 <h3><p>License</p></h3>
 
-Distributed under the MIT License. See LICENSE(https://github.com/KDUser12/DoxHub/blob/master/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/KDUser12/DoxHub/blob/master/LICENSE) for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

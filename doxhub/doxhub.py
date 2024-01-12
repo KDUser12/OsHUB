@@ -73,9 +73,9 @@ class Commands:
         if not self.find_command():
             return
 
-        if self.prompt == 13:
+        if self.prompt == 14:
             about_command()
-        elif self.prompt == 14:
+        elif self.prompt == 15:
             exit(0)
         else:
             QueryResult(self.prompt, commands[self.prompt])

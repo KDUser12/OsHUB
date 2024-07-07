@@ -5,10 +5,10 @@ information about a target person.
 
 """
 
+from utils.version import get_version
 
 
 
 
 
-
-__version__    = "1.1.2"
+__version__    = get_version(1, 1, 2, 'final', 0)

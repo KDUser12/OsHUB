@@ -5,6 +5,7 @@
 Project versions currently supported by security updates.
 
 
+- `2.xb0`  : True
 - `1.x`    : True
 - `0.1b0`  : False
 

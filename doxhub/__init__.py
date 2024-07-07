@@ -11,4 +11,4 @@ from utils.version import get_version
 
 
 
-__version__    = get_version(1, 1, 3, 'final', 0)
+VERSION = "1.1.2"

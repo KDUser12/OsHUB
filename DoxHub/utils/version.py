@@ -1,6 +1,6 @@
 import datetime
 import functools
-import os.path
+import os
 import subprocess
 import sys
 
@@ -19,22 +19,23 @@ PY312 = sys.version_info >= (3, 12)
 PY313 = sys.version_info >= (3, 13)
 
 
-def get_version(version=None):
-    """PEP 440-compliant version number
+def get_version(version: tuple):
+    """PEP 440-compliant version number.
 
-    Build of the two parts of the version number:
-    main = X.Y[.Z]
-    sub = .devN - for pre-alpha releases
-        | {a|b|rc}N - for alpha, beta and rc releases
+    Args:
+        version (tuple, optional): Tuple containing the module version.
 
-    Keyword Arguments:
-    :param version:             -- Tuple containing the module version.
-
-    :return:
-    Return a PEP 440-compliant version number from VERSION.
+    Returns:
+        str: PEP 440-compliant version number from VERSION
     """
 
     version = get_complete_version(version)
+
+    # Build of the two parts of the version number:
+    # main = X.Y[.Z]
+    # sub = .devN - for pre-alpha releases
+    #     | {a|b|rc}N - for alpha, beta and rc releases
+
     main = get_main_version(version)
     sub = ""
 
@@ -49,16 +50,14 @@ def get_version(version=None):
     return main + sub
 
 
-def get_main_version(version=None):
+def get_main_version(version: tuple):
     """Build main version.
 
-    Return main version (X.Y[.Z]) from VERSION.
+    Args:
+        version (tuple, optional): Tuple containing the module version.
 
-    Keyword Arguments:
-    :param version:             -- Tuple containing the module version.
-
-    :return:
-    Return main version.
+    Returns:
+        str: main version (X.Y[.Z]) from VERSION
     """
 
     version = get_complete_version(version)
@@ -67,21 +66,18 @@ def get_main_version(version=None):
     return ".".join(str(x) for x in version[:parts])
 
 
-def get_complete_version(version=None):
+def get_complete_version(version: tuple):
     """Checking the tuple.
 
-    If version argument is non-empty, check for correctness of
-    the tuple provided.
+    Args:
+        version (tuple, optional): Tuple containing the module version.
 
-    Keyword Arguments:
-    :param version:             -- Tuple containing the module version.
-
-    :return:
-    Return a tuple of the DoxHub version.
+    Returns:
+        tuple: Tuple of the DoxHub version
     """
 
     if version is None:
-        from doxhub import VERSION as version
+        from DoxHub import VERSION as version
     else:
         assert len(version) == 5
         assert version[3] in ('alpha', 'beta', 'rc', 'release')
@@ -93,12 +89,8 @@ def get_complete_version(version=None):
 def get_git_changeset():
     """Generating of development version numbers.
 
-    The result is the UTC timestamp of the changeset in YYYYMMDDHHMMSS format.
-    This value isn't guaranteed to be unique, but collisions are very unlikely,
-    so it's sufficient for generating the development version numbers.
-
-    :return:
-    Return a numeric identifier of the latest git changeset.
+    Returns:
+        int: Numeric identifier of the latest git changeset
     """
 
     if "__file__" not in globals():

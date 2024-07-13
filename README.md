@@ -8,8 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-<h1 align="center">DOXHUB</h1>
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -24,21 +22,16 @@
   <img src="https://img.shields.io/github/stars/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/issues/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/license/KDUser12/DoxHub?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Version-1.1.2-green?style=for-the-badge">
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Author-KDUser12-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/Open%20Source-Yes?style=flat-square">
-  <img src="https://img.shields.io/badge/Maintained-Yes?style=flat-square">
-  <img src="https://img.shields.io/badge/Written%20In%20Python-Yes?style=flat-square">
-  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKDUser%2FDoxHub&title=Visitors&edge_flat=true"/></a>
+  <img src="https://img.shields.io/badge/Version-2.0b1-orange?style=for-the-badge">
 </p>
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+
+
+<h1 align="center">DOXHUB</h1>
 
   <p align="center">
     A tool containing +30 sites and tools to learn doxing.
@@ -86,7 +79,11 @@ Here is the list of prerequisites you will need to have before installing the mo
    ```sh
    cd doxhub
    ```
-4. Start module `doxhub`
+4. Install the modules
+    ```sh
+    pip install -r requirements.txt
+    ```
+5. Start module `doxhub`
    - Windows
        ```py
      python doxhub

@@ -1,7 +1,6 @@
-"""
-DoxHub: Identify tools to find personal information.
+""" DoxHub: Identify tools to find personnal information.
 
-This module contains a list of tools and sites to find personal
+This Module contains a list of tools and sites to find personnal
 information about a target person.
 """
 
@@ -12,7 +11,7 @@ if __name__ == '__main__':
     python_version = sys.version.split()[0]
 
     if sys.version_info < (3, 8):
-        exit("DoxHub requires Python 3.8+ You are using Python {}, which is not supported by DoxHub".format(python_version))
+        exit(f"E: DoxHub requires Python 3.8. You are using Python {python_version}, which is not supported by DoxHub.")
 
     import doxhub
     doxhub.main()

@@ -20,12 +20,18 @@
 - Updated the results display format.
 - Updating the `README.md` file.
 - Updating security policy.
+- Ignoring `.idea/` folder.
+- Added specific commands.
+  - `!`: Exit command.
+  - `:`: About command.
+  - `?`: Changelog command.
+- Ignoring `venv/` folder.
 
 ### Deleted:
 - Removed - Directory `.github/`.
 - Removed - Python versions previous to 3.8.x.
-- Removed - Directory `.idea/`.
 - Removed - List of sites and tools considered too violent.
 
 ### Bugs:
 - Fix - Handling the `KeyboardInterrupt` error.
+- Fix - Fixed command naming offset.

@@ -13,6 +13,64 @@ from __init__ import __version__
 from utils.update import get_latest_version
 from result import QueryResult
 
+
+def about_command():
+    """Display information about the DoxHub Module.
+    """
+
+    print("""DoxHub module.
+DoxHub contains a list of tools and sites to find personal
+information about a target person.""")
+
+
+def tm_command():
+    """Display information about the creation of DoxHub.
+    """
+
+    print("""DoxHub is a program created by KDUser12 on GitHub on January 5, 2024""")
+
+
+def changelog_command():
+    print(f"""CHANGELOG v{__version__}
+    
+News:
+- Ignoring `.pyc` files.
+- Added a file containing information about new versions, Beta only.
+- Version plugin change.
+- Compatibility with new versions of Python (3.13).
+- Addition of a `requirements.txt` file allowing you to know and install the necessary modules.
+- The `github_version_checker.py` file was renamed to `update.py`.
+- Possible error handling in the `update.py` file.
+- Using `colorama` to manage colors.
+- Changing the menu display format.
+- Changed the display of the prompt.
+    - Display username.
+    - Display of device name.
+    - Displaying the program execution directory.
+- Invalid commands management.
+- Modification of the `ressources` folder, renamed to `resources`.
+- Checking the existence of a value in a dictionary to avoid an empty display.
+- Updated the results display format.
+- Updating the `README.md` file.
+- Updating security policy.
+- Ignoring `.idea/` folder.
+- Added specific commands.
+  - `!`: Exit command.
+  - `:`: About command.
+  - `?`: Changelog command.
+- Ignoring `venv/` folder.
+
+Deleted:
+- Removed - Directory `.github/`.
+- Removed - Python versions previous to 3.8.x.
+- Removed - List of sites and tools considered too violent.
+
+Bugs:
+- Fix - Handling the `KeyboardInterrupt` error.
+- Fix - Fixed command naming offset.
+""")
+
+
 commands = {
     1: "Username",
     2: "Email Address",
@@ -25,6 +83,14 @@ commands = {
     9: "Data Leaks",
     10: "Phishing",
     11: "DDoS"
+}
+
+
+special_commands = {
+    ":": about_command,
+    "!": exit,
+    "TM": tm_command,
+    "?": changelog_command
 }
 
 
@@ -53,23 +119,29 @@ class DoxHub:
 
     def get_command(self):
         if self.find_command():
-            QueryResult(self.prompt, commands[self.prompt])
+            if isinstance(self.prompt, str):
+                return special_commands[self.prompt]()
+            print(isinstance(self.prompt, int))
+            return QueryResult(self.prompt, commands[self.prompt])
     
-    def find_command(self):
+    def find_command(self) -> bool:
         """Search for the command entered by the user.
 
         Returns:
             bool: command search result
         """
 
-        try:
-            self.prompt = int(self.prompt)
-            if self.prompt in commands:
-                return True
-            print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid command.")
-        except ValueError:
-            print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid value.")
-        return False
+        if self.prompt not in special_commands:
+            try:
+                self.prompt = int(self.prompt)
+            except ValueError:
+                print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid value.")
+                return False
+
+        if self.prompt in commands or self.prompt in special_commands:
+            return True
+
+        print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid command.")
 
 
 def center_text(text: str):
@@ -132,7 +204,7 @@ def main():
 ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
 """)
     
-    right_text(f"> [TM] Made by KDUser12\n> [?] {current_version} Changelog", f"About [!] <\nExit [~] <")
+    right_text(f"> [TM] Made by KDUser12\n> [?] {current_version} Changelog", f"About [:] <\nExit [!] <")
     print(f"\n{Fore.RESET}")
 
     for count in range(1, 10):

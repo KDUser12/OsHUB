@@ -1,6 +1,6 @@
-""" DoxHub: Identify tools to find personnal information.
+""" DoxHub: Identify tools to find personal information.
 
-This Module contains a list of tools and sites to find personnal
+This Module contains a list of tools and sites to find personal
 information about a target person.
 """
 

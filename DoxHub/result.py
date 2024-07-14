@@ -8,7 +8,7 @@ def check_value(dictionary: dict) -> bool:
     """Checking dictionary values.
 
     Args:
-        dict (dict): Dictionary to process
+        dictionary (dict): Dictionary to process
 
     Returns:
         bool: result of dictionary check
@@ -27,7 +27,7 @@ class QueryResult:
     Describes result of query about a given value.
     """
 
-    def __init__(self, command: int, option: str) -> object:
+    def __init__(self, command: int, option: str) -> None:
         """Create a query result object.
         Contains information about a specific display method on a given type of website and tool.
 
@@ -39,7 +39,7 @@ class QueryResult:
         self.command = command
         self.option = option
 
-        return print(self.format_output())
+        print(self.format_output())
 
     def format_output(self) -> str:
         """Format the output string.

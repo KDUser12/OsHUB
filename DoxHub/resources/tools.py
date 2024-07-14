@@ -18,11 +18,7 @@ tools = {
     10: {
         "https://github.com/htr-tech/zphisher"
     },
-    11: {},
-    12: {
+    11: {
         "https://github.com/LimerBoy/Impulse"
-    },
-    13: {},
-
-
+    }
 }

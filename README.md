@@ -8,8 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-<h1 align="center">DOXHUB</h1>
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -18,27 +16,23 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+<!--suppress ALL -->
 <p align="center">
   <img src="https://img.shields.io/github/contributors/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/forks/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/issues/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/license/KDUser12/DoxHub?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Version-1.1.2-green?style=for-the-badge">
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Author-KDUser12-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/Open%20Source-Yes?style=flat-square">
-  <img src="https://img.shields.io/badge/Maintained-Yes?style=flat-square">
-  <img src="https://img.shields.io/badge/Written%20In%20Python-Yes?style=flat-square">
-  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKDUser%2FDoxHub&title=Visitors&edge_flat=true"/></a>
+  <img src="https://img.shields.io/badge/Version-2.0b1-orange?style=for-the-badge">
 </p>
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+
+
+<h1 align="center">DOXHUB</h1>
 
   <p align="center">
     A tool containing +30 sites and tools to learn doxing.
@@ -58,9 +52,10 @@
 
 <!-- DISCLAIMER -->
 <h3><p align="center">Disclaimer</p></h3>
-<p><i>DoxHub is an educational program to learn how osint works but also to know how to protect yourself from it. We are in no way responsible for acts or derivations of the program that go against privacy like doxing. We encourage you to maintain a certain ethic and not risk your life by publicly exposing personal information about any person. If you decide to use these tools and sites, it is best to have permission from the person.</p>
+<p><i>DoxHub is an educational program to learn how osint works but also to know how to protect yourself from it. We are in no way responsible for acts or derivations of the program that go against privacy like doxing. We encourage you to maintain a certain ethic and not risk your life by publicly exposing personal information about any person. If you decide to use these tools and sites, it is best to have permission from the person.</i>
+</p>
 
-<p>If you have come here with the aim of harming the privacy of any person then thank you for passing your way, we remind you that for some countries you can risk a fine of several thousand dollars and several years in prison. </i></p>
+<p><i>If you have come here with the aim of harming the privacy of any person then thank you for passing your way, we remind you that for some countries you can risk a fine of several thousand dollars and several years in prison. </i></p>
 
 ##
 
@@ -82,10 +77,14 @@ Here is the list of prerequisites you will need to have before installing the mo
    ```sh
    git clone https://github.com/kduser12/doxhub.git
    ```
-3. Go to `doxhub` directory
+2. Go to `doxhub` directory
    ```sh
    cd doxhub
    ```
+3. Install the modules
+    ```sh
+    pip install -r requirements.txt
+    ```
 4. Start module `doxhub`
    - Windows
        ```py
@@ -103,20 +102,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/KDUser12/Dox
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: .github/mics/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 

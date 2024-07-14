@@ -42,16 +42,5 @@ sites = {
         "https://breachforums.is/"
     },
     10: {},
-    11: {
-        "https://watchpeopledie.tv",
-        "https://thisisgore.com",
-        "https://documentingreality.com"
-    },
-    12: {
-
-    },
-    13: {
-        "https://doxbin.com",
-        "https://osintframework.com"
-    }
+    11: {}
 }

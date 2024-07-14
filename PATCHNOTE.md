@@ -1,5 +1,5 @@
-# PROJECT: DOXHUB
-## PATCH NOTE - 2.0b1
+# PROJECT: DOXHUB - 2.0
+## PATCH NOTE - 2.0b0
 ### News:
 - Ignoring `.pyc` files.
 - Added a file containing information about new versions, Beta only.
@@ -35,3 +35,11 @@
 ### Bugs:
 - Fix - Handling the `KeyboardInterrupt` error.
 - Fix - Fixed command naming offset.
+
+## PATCH NOTE - 2.0.1b0
+### News:
+- Updated `PATCHNOTE.md`
+- Updated changelogs.
+
+### Bugs:
+- Fix - Fixed version display.

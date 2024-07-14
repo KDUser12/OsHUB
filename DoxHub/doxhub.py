@@ -31,7 +31,7 @@ def tm_command():
 
 
 def changelog_command():
-    print(f"""CHANGELOG v{__version__}
+    print(f"""CHANGELOG v2.0b0
     
 News:
 - Ignoring `.pyc` files.
@@ -68,6 +68,15 @@ Deleted:
 Bugs:
 - Fix - Handling the `KeyboardInterrupt` error.
 - Fix - Fixed command naming offset.
+
+CHANGELOG v2.0.1b0:
+
+News:
+- Updated `PATCHNOTE.md`
+- Updated changelogs.
+
+Bugs:
+- Fix - Fixed version display.
 """)
 
 

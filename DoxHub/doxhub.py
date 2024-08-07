@@ -14,7 +14,7 @@ Released under the MIT License
 """
 
 import os
-from colorama import Fore
+from colorama import Fore, Style
 import shutil
 import socket
 
@@ -24,69 +24,52 @@ from result import QueryResult
 
 
 def about_command():
-    """Display information about the DoxHub Module.
+    """about_command - Display information about the DoxHub Module.
+    
+    Extended Summary:
+    This function prints out a brief description of the DoxHub module. 
+    DoxHub contains a list of tools and sites designed to help find personal 
+    information about a target person. It is intended to provide users with 
+    information on the purpose and usage of the module.
     """
-
+    
     print("""DoxHub module.
 DoxHub contains a list of tools and sites to find personal
 information about a target person.""")
 
 
-def tm_command():
-    """Display information about the creation of DoxHub.
-    """
-
-    print("""DoxHub is a program created by KDUser12 on GitHub on January 5, 2024""")
-
-
 def changelog_command():
-    print(f"""CHANGELOG v2.0b0
+    """changelog_command - Display the changelog for the DoxHub Module.
     
-News:
-- Ignoring `.pyc` files.
-- Added a file containing information about new versions, Beta only.
-- Version plugin change.
-- Compatibility with new versions of Python (3.13).
-- Addition of a `requirements.txt` file allowing you to know and install the necessary modules.
-- The `github_version_checker.py` file was renamed to `update.py`.
-- Possible error handling in the `update.py` file.
-- Using `colorama` to manage colors.
-- Changing the menu display format.
-- Changed the display of the prompt.
-    - Display username.
-    - Display of device name.
-    - Displaying the program execution directory.
-- Invalid commands management.
-- Modification of the `ressources` folder, renamed to `resources`.
-- Checking the existence of a value in a dictionary to avoid an empty display.
-- Updated the results display format.
-- Updating the `README.md` file.
-- Updating security policy.
-- Ignoring `.idea/` folder.
-- Added specific commands.
-  - `!`: Exit command.
-  - `:`: About command.
-  - `?`: Changelog command.
-- Ignoring `venv/` folder.
+    Extended Summary:
+    This function prints the patch notes for the DoxHub module. It includes 
+    information about new features, bug fixes, changes, and removed features 
+    for version 3.0 as of 08-08-2024. The changelog is formatted to highlight 
+    various sections such as new features, bug fixes, changes, and removals.
+    """
+    
+    print(f"""{Style.BRIGHT}Patch Notes - DoxHub{Style.NORMAL}
+{Style.BRIGHT}Version 3.0 - 08-08-2024{Style.NORMAL}
+{Style.DIM}New Features{Style.NORMAL}
+- Checking operating system compatibility.
+- Adding a gitignore library.
 
-Deleted:
-- Removed - Directory `.github/`.
-- Removed - Python versions previous to 3.8.x.
-- Removed - List of sites and tools considered too violent.
+{Style.DIM}Bug Fixes{Style.NORMAL}
+- Fix - Fixed - Fixed display of `True` message when calling a command.
 
-Bugs:
-- Fix - Handling the `KeyboardInterrupt` error.
-- Fix - Fixed command naming offset.
+{Style.DIM}Changes{Style.NORMAL}
+- File name `PATCHNOTE.md` replaced in `PATCH_NOTES.md`.
+- New Patch Notes display format.
+- New program version management.
+- New comment display format.
+- New Python version compatibility management.
+- Changed update management.
+- Changed the display of the update message.
+- Changelog update.
 
-CHANGELOG v2.0.1b0:
-
-News:
-- Updated `PATCHNOTE.md`
-- Updated changelogs.
-
-Bugs:
-- Fix - Fixed version display.
-""")
+{Style.DIM}Removed{Style.NORMAL}
+- Removed the letter `v` when naming the current version of the program.
+- Removing the `TM` command.""")
 
 
 commands = {
@@ -107,7 +90,6 @@ commands = {
 special_commands = {
     ":": about_command,
     "!": exit,
-    "TM": tm_command,
     "?": changelog_command
 }
 

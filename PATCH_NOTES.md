@@ -1,5 +1,5 @@
 # **Patch Notes - DoxHub**
-## **Version 3.0 - 07-14-2024**
+## **Version 3.0 - 08-08-2024**
 ### *New Features*
 - Checking operating system compatibility.
 - Adding a gitignore library.
@@ -15,6 +15,8 @@
 - New Python version compatibility management.
 - Changed update management.
 - Changed the display of the update message.
+- Changelog update.
 
 ### *Removed*
 - Removed the letter `v` when naming the current version of the program.
+- Removing the `TM` command.

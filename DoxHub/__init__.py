@@ -1,11 +1,13 @@
-""" DoxHub Module
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
+"""
 This module contains a list of tools and sites to find personal
 information about a target person.
 """
 
-from utils.version import get_version
+import _version
 
-VERSION = (3, 0, 0, "release", 0)
 
-__version__ = get_version(VERSION)
+__version__ = _version.__version__
+__author__ = "KDUser12"

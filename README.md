@@ -23,7 +23,7 @@
   <img src="https://img.shields.io/github/stars/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/issues/KDUser12/DoxHub?style=for-the-badge">
   <img src="https://img.shields.io/github/license/KDUser12/DoxHub?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Version-2.0.1b0-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-3.0relase-green?style=for-the-badge">
 </p>
 
 

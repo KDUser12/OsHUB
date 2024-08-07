@@ -1,17 +1,30 @@
-""" DoxHub: Identify tools to find personal information.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+DoxHub
 
 This Module contains a list of tools and sites to find personal
 information about a target person.
+
+~~~~~~~~~~~~~~~~~~~~~
+Source: https://github.com/KDUser12/DoxHub
+(c) 2024 KDUser12
+Released under the MIT License
 """
 
-import sys
+from utils._os import check_os_compatibility
+from utils.env import check_python_version
+
 
 if __name__ == '__main__':
-    # Check if the user is using the correct version of Python.
-    python_version = sys.version.split()[0]
-
-    if sys.version_info < (3, 8):
-        exit(f"E: DoxHub requires Python 3.8. You are using Python {python_version}, which is not supported by DoxHub.")
+    required_versions = ['3.6', '3.7', '3.8']
+    
+    try:
+        check_os_compatibility()
+        check_python_version(required_versions)
+    except EnvironmentError as error:
+        exit(f"Error: {error}")
 
     import doxhub
     doxhub.main()

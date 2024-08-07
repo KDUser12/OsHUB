@@ -1,7 +1,16 @@
-""" DoxHub: Identify tools to find personal information.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-This module contains a list of tools and sites to find personal
+"""
+DoxHub
+
+This Module contains a list of tools and sites to find personal
 information about a target person.
+
+~~~~~~~~~~~~~~~~~~~~~
+Source: https://github.com/KDUser12/DoxHub
+(c) 2024 KDUser12
+Released under the MIT License
 """
 
 import os
@@ -10,7 +19,7 @@ import shutil
 import socket
 
 from __init__ import __version__
-from utils.update import get_latest_version
+from utils.update import check_versions
 from result import QueryResult
 
 
@@ -196,12 +205,9 @@ def clear_output():
 
 
 def main():
-    current_version = f"v{__version__}"
-    latest_version = get_latest_version(current_version)
+    current_version = f"{__version__}"
+    latest_version = check_versions("doxhub", current_version)
     clear_output()
-
-    if latest_version:
-        print(Fore.RED + latest_version + Fore.RESET)
     
     center_text(f"""{Fore.BLUE}
 ██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 
@@ -222,5 +228,8 @@ def main():
             space = " " * (50 - len(message))
             message = message + f"{space}{Fore.BLUE}({Fore.RESET}{count + 9}{Fore.BLUE}){Fore.RESET} > {commands[count + 9]}"
         print(message)
+        
+    if latest_version:
+        print("\nInstall the latest DoxHub for new features and improvements! https://github.com/KDUser12/DoxHub/releases/latest")
 
     DoxHub()

@@ -2,6 +2,7 @@
 ## **Version 3.0 - 07-14-2024**
 ### *New Features*
 - Checking operating system compatibility.
+- Adding a gitignore library.
 
 ### *Bug Fixes*
 - Fix- Fixed - Fixed display of `True` message when calling a command.
@@ -12,3 +13,8 @@
 - New program version management.
 - New comment display format.
 - New Python version compatibility management.
+- Changed update management.
+- Changed the display of the update message.
+
+### *Removed*
+- Removed the letter `v` when naming the current version of the program.

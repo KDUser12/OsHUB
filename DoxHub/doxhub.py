@@ -130,7 +130,6 @@ class DoxHub:
         if self.find_command():
             if isinstance(self.prompt, str):
                 return special_commands[self.prompt]()
-            print(isinstance(self.prompt, int))
             return QueryResult(self.prompt, commands[self.prompt])
     
     def find_command(self) -> bool:

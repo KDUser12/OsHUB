@@ -16,6 +16,9 @@
 - Changed update management.
 - Changed the display of the update message.
 - Changelog update.
+- Changing the display of the prompt.
+- Changing the docstring.
+- Changed the introductory display.
 
 ### *Removed*
 - Removed the letter `v` when naming the current version of the program.

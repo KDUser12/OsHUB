@@ -66,6 +66,9 @@ def changelog_command():
 - Changed update management.
 - Changed the display of the update message.
 - Changelog update.
+- Changing the display of the prompt.
+- Changing the docstring.
+- Changed the introductory display.
 
 {Style.DIM}Removed{Style.NORMAL}
 - Removed the letter `v` when naming the current version of the program.
@@ -86,7 +89,6 @@ commands = {
     11: "DDoS"
 }
 
-
 special_commands = {
     ":": about_command,
     "!": exit,
@@ -95,8 +97,33 @@ special_commands = {
 
 
 class DoxHub:
+    """DoxHub - Management of user-entered commands from a command line interface.
+
+    Extended Summary:
+    The `DoxHub` class is designed to handle the command-line interface for the DoxHub tool. 
+    It manages user interactions, processes commands, and provides a prompt similar to a 
+    terminal shell. Upon initialization, it gathers system information, such as the device name 
+    and username, and starts the command input loop.
+
+    Attributes:
+        device_name (str): The hostname of the device.
+        user_name (str): The username of the current logged-in user.
+        directory (str): The current working directory.
+        prompt (str): The command prompt string displayed to the user.
+
+    Methods:
+        call_command: Continuously prompt the user for commands and execute them.
+        get_command: Determine and execute the appropriate command based on user input.
+        find_command: Check if the entered command is valid.
+    """
+    
     def __init__(self):
-        """Management of user-entered commands from a command line interface.
+        """__init__ - Initialize the DoxHub class.
+
+        Extended Summary:
+        This constructor initializes the `DoxHub` object by setting up essential attributes 
+        like `device_name`, `user_name`, and `directory`. It then calls the `call_command` 
+        method to begin processing user commands from the command-line interface.
         """
 
         self.device_name = socket.gethostname()
@@ -107,27 +134,48 @@ class DoxHub:
         self.call_command()
 
     def call_command(self):
-        """Calling a command from a prompt.
+        """call_command - Start the command input loop.
+
+        Extended Summary:
+        This method continuously prompts the user to enter a command. It constructs the command prompt 
+        using the system's username, device name, and current directory. The input is then processed by 
+        the `get_command` method. The loop runs until the user interrupts it with a keyboard signal (Ctrl+C).
         """
 
         try:
             while True:
-                self.prompt = input(f"\n{Fore.BLUE}┌──({self.user_name}@{self.device_name})-[{self.directory}]\n└─$ {Fore.RESET}")
+                self.prompt = input(f"\n┌──({Fore.BLUE}{Style.BRIGHT}{self.user_name}@{self.device_name}{Style.RESET_ALL}"
+                                    f"{Fore.RESET})-[{Fore.BLUE}{Style.BRIGHT}{self.directory}{Style.RESET_ALL}{Fore.RESET}]"
+                                    f"\n└─{Fore.BLUE}{Style.BRIGHT}$ {Style.RESET_ALL}{Fore.RESET}")
                 self.get_command()
         except KeyboardInterrupt:
             exit("\n")
 
     def get_command(self):
+        """get_command  Process and execute the user's command.
+
+        Extended Summary:
+        This method checks if the command entered by the user is valid using the `find_command` method.
+        If valid, it either executes a special command or returns a query result based on the command type.
+
+        Returns:
+            None -- Executes the command or returns a result based on the input.
+        """
         if self.find_command():
             if isinstance(self.prompt, str):
                 return special_commands[self.prompt]()
             return QueryResult(self.prompt, commands[self.prompt])
     
     def find_command(self) -> bool:
-        """Search for the command entered by the user.
+        """find_command Search for the command entered by the user.
+
+        Extended Summary:
+        This method determines whether the command entered by the user is valid by checking 
+        against predefined commands and special commands. It also handles user input errors 
+        by prompting for valid input if necessary.
 
         Returns:
-            bool: command search result
+            bool -- True if the command is found; False otherwise.
         """
 
         if self.prompt not in special_commands:
@@ -141,13 +189,19 @@ class DoxHub:
             return True
 
         print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid command.")
+        return False
 
 
 def center_text(text: str):
-    """Center the provided text in the terminal.
+    """center_text - Center the provided text in the terminal.
 
-    Args:
-        text (str): Text to be centered
+    Extended Summary:
+    This function takes a multi-line string as input and centers each line
+    within the current terminal width. It calculates the necessary padding
+    for each line to be centrally aligned and prints it accordingly.
+
+    Arguments:
+        text {str} -- The text to be centered, which can span multiple lines.
     """
 
     lines = text.split('\n')
@@ -159,11 +213,17 @@ def center_text(text: str):
 
 
 def right_text(left_text: str, right_text: str):
-    """Right and left movement of text provided.
+    """right_text - Align left and right text within the terminal.
 
-    Args:
-        left_text (str): Text to move left
-        right_text (str): Text to move right
+    Extended Summary:
+    This function prints two strings on the same line in the terminal, 
+    one aligned to the left and the other to the right. It splits the input 
+    strings into lines and calculates the necessary padding between the 
+    left and right text to ensure proper alignment within the terminal width.
+
+    Arguments:
+        left_text {str} -- The text to be aligned on the left.
+        right_text {str} -- The text to be aligned on the right.
     """
 
     left_lines = left_text.split('\n')
@@ -176,10 +236,15 @@ def right_text(left_text: str, right_text: str):
 
 
 def clear_output():
-    """Clear the terminal screen.
+    """clear_output - Clear the terminal screen.
+
+    Extended Summary:
+    This function clears the terminal screen by executing the appropriate 
+    system command based on the operating system (e.g., 'cls' for Windows and 
+    'clear' for Unix-like systems). It is useful for resetting the terminal view.
 
     Returns:
-        int: StrOrBytesPath
+        int -- The return code from the system command, indicating success or failure.
     """
 
     command = 'cls' if os.name == 'nt' else 'clear'
@@ -192,6 +257,8 @@ def main():
     clear_output()
     
     center_text(f"""{Fore.BLUE}
+                
+                
 ██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 
 ██╔══██╗██╔═══██╗╚██╗██╔╝██║  ██║██║   ██║██╔══██╗
 ██║  ██║██║   ██║ ╚███╔╝ ███████║██║   ██║██████╔╝

@@ -2,10 +2,12 @@ sites = {
     "1": {
         "https://checkusernames.com/",
         "https://usersearch.org/",
-        "https://www.namecheckr.com/"
+        "https://www.namecheckr.com/",
+        "https://whatsmyname.app/"
     },
     "2": {
-        "https://epieos.com"
+        "https://epieos.com",
+        "https://hunter.io/"
     },
     "3": {
         "https://iplocation.net/",
@@ -39,8 +41,26 @@ sites = {
         "https://cryptome.org/",
         "https://wikileaks.org/",
         "https://haveibeenpwned.com/",
-        "https://breachforums.is/"
+        "https://breachforums.is/",
+        "https://dehashed.com/"
     },
     "10": {},
-    "11": {}
+    "11": {},
+    "12": {
+        "https://google.com/",
+        "https://yandex.com/",
+        "https://yahoo.com/"
+    },
+    "13": {
+        "https://tineye.com/",
+        "https://pimeyes.com/"
+    },
+    "14": {
+        "https://jimpl.com/"
+    },
+    "15": {},
+    "16": {
+        "https://wikimapia.org/",
+        "https://earth.google.com/web/"
+    }
 }

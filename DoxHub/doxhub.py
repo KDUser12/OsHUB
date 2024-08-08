@@ -54,6 +54,13 @@ def changelog_command():
 - Checking operating system compatibility.
 - Adding a gitignore library.
 - New command management.
+- Added search engines.
+- Added image/face search engines.
+- Added data viewer.
+- Added new sites/tools for usernames.
+- Added `Social Network` for advanced searches on social networks.
+- Added geolocation.
+- Adding a new data leak site.
 
 {Style.DIM}Bug Fixes{Style.NORMAL}
 - Fix - Fixed - Fixed display of `True` message when calling a command.
@@ -87,7 +94,12 @@ commands = {
     "8": "Transportation",
     "9": "Data Leaks",
     "10": "Phishing",
-    "11": "DDoS"
+    "11": "DDoS",
+    "12": "Search Engine",
+    "13": "Face/Image Search Engine",
+    "14": "Data Viewer",
+    "15": "Social Network",
+    "16": "Geolocation"
 }
 
 special_commands = {

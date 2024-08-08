@@ -4,6 +4,14 @@
 - Checking operating system compatibility.
 - Adding a gitignore library.
 - New command management.
+- Added search engines.
+- Added image/face search engines.
+- Added data viewer.
+- Added new sites/tools for usernames.
+- Added `Social Network` for advanced searches on social networks.
+- Added a new site for email addresses.
+- Added geolocation.
+- Adding a new data leak site.
 
 ### *Bug Fixes*
 - Fix- Fixed - Fixed display of `True` message when calling a command.

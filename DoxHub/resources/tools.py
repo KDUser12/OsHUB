@@ -1,7 +1,8 @@
 tools = {
     "1": {
         "https://github.com/sherlock-project/sherlock",
-        "https://github.com/datasploit/datasploit/"
+        "https://github.com/datasploit/datasploit/",
+        "https://github.com/WebBreacher/WhatsMyName"
     },
     "2": {
         "https://github.com/megadose/holehe"
@@ -20,5 +21,12 @@ tools = {
     },
     "11": {
         "https://github.com/LimerBoy/Impulse"
-    }
+    },
+    "12": {},
+    "13": {},
+    "14": {},
+    "15": {
+        "https://github.com/Datalux/Osintgram"
+    },
+    "16": {}
 }

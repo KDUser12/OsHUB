@@ -1,47 +1,76 @@
 import requests
-from colorama import Fore
 
 
-def get_latest_version(current_version: str):
-    """Get the latest version of the repository from GitHub.
+def get_latest_version(repository, current_version):
+    """get_latest_version - Retrieve the latest release version from a GitHub repository.
 
-    Args:
-        current_version (str): Current version of the application.
+    Extended Summary:
+    This function sends a GET request to the GitHub API to fetch the latest release version
+    of a specified repository. It checks if the retrieved version follows the expected format.
+    If the format is invalid or if there is an error in the HTTP request, the function logs
+    the issue and returns None. Otherwise, it returns the result of comparing the current
+    version with the latest version.
+
+    Arguments:
+        repository {str} -- The GitHub repository in the format 'owner/repo'.
+        current_version {str} -- The current version of the software.
 
     Returns:
-        str: potential update or possible error
+        str or None -- The latest version if a new version is available, False if up-to-date, or None if there is an error.
     """
-
+    
+    url = f"https://api.github.com/repos/kduser12/{repository}/releases/latest"
+    
     try:
-        response = requests.get("https://api.github.com/repos/kduser12/doxhub/releases/latest")
-        response.raise_for_status()
-
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the request was successful
         data = response.json()
-        latest_version = data['tag_name']
+        latest_version = data.get("tag_name", "undefined")
+        
+    except requests.exceptions.RequestException as error:
+        print(f"HTTP request error: {error}")
+        return None
     
-    except requests.exceptions.HTTPError as http_err:
-        return f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} HTTP error occurred: {http_err}"
-    except requests.exceptions.ConnectionError as conn_err:
-        return f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Connection error occurred: {conn_err}"
-    except requests.exceptions.Timeout as timeout_err:
-        return f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Timeout error occurred: {timeout_err}"
-    except requests.exceptions.RequestException as req_err:
-        return f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} An error occurred: {req_err}"
+    return get_result_version(current_version, latest_version)
     
-    return check_for_update(current_version, latest_version)
     
+def get_result_version(current_version, latest_version):
+    """get_result_version - Compare current version with the latest version to determine update status.
 
-def check_for_update(current_version: str, latest_version: str):
-    """Check if a new version is available.
+    Extended Summary:
+    This function compares the current version of the software with the latest version available.
+    It logs whether the current version is up-to-date or if a new version is available. If the
+    current version does not conform to the expected format, it logs an error and returns None.
 
-    Args:
-        current_version (str): Current version of the application
-        latest_version (str): Latest version fetched from GitHub
+    Arguments:
+        current_version {str} -- The current version of the software.
+        latest_version {str} -- The latest available version of the software.
 
     Returns:
-        str: potential update
+        str, bool or None -- The latest version if a new version is available, False if up-to-date, or None if there is an error.
     """
+    
+    if current_version == latest_version:
+        return False
+    else:
+        return latest_version
 
-    if current_version != latest_version:
-        return f"Install the latest DoxHub ({latest_version}) for new features and improvements! https://github.com/KDUser12/DoxHub/releases/latest"
-    return False
+
+def check_versions(repository, current_version):
+    """check_versions - Check the version for a single repository.
+
+    Extended Summary:
+    This function checks the latest release version for a single GitHub repository and
+    compares it with the current version. It logs the result and returns whether the current
+    version is up-to-date or if a new version is available.
+
+    Arguments:
+        repository {str} -- The GitHub repository in the format 'owner/repo'.
+        current_version {str} -- The current version of the software.
+
+    Returns:
+        str or None -- The latest version if a new version is available and valid, otherwise None.
+    """
+    
+    result = get_latest_version(repository, current_version)
+    return result

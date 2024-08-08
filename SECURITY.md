@@ -5,8 +5,9 @@
 Project versions currently supported by security updates.
 
 
-- `2.0bx`  : True
-- `1.x`    : True
+- `3.x-release` : True
+- `2.0bx`  : False
+- `1.x`    : False
 - `0.1b0`  : False
 
 ## Reporting a Vulnerability

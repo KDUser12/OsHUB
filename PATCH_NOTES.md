@@ -3,6 +3,7 @@
 ### *New Features*
 - Checking operating system compatibility.
 - Adding a gitignore library.
+- New command management.
 
 ### *Bug Fixes*
 - Fix- Fixed - Fixed display of `True` message when calling a command.

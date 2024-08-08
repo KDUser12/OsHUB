@@ -53,6 +53,7 @@ def changelog_command():
 {Style.DIM}New Features{Style.NORMAL}
 - Checking operating system compatibility.
 - Adding a gitignore library.
+- New command management.
 
 {Style.DIM}Bug Fixes{Style.NORMAL}
 - Fix - Fixed - Fixed display of `True` message when calling a command.
@@ -76,17 +77,17 @@ def changelog_command():
 
 
 commands = {
-    1: "Username",
-    2: "Email Address",
-    3: "IP Address",
-    4: "Telephone Numbers",
-    5: "Exploits",
-    6: "Archives",
-    7: "Dark Web",
-    8: "Transportation",
-    9: "Data Leaks",
-    10: "Phishing",
-    11: "DDoS"
+    "1": "Username",
+    "2": "Email Address",
+    "3": "IP Address",
+    "4": "Telephone Numbers",
+    "5": "Exploits",
+    "6": "Archives",
+    "7": "Dark Web",
+    "8": "Transportation",
+    "9": "Data Leaks",
+    "10": "Phishing",
+    "11": "DDoS"
 }
 
 special_commands = {
@@ -96,100 +97,148 @@ special_commands = {
 }
 
 
-class DoxHub:
-    """DoxHub - Management of user-entered commands from a command line interface.
+class CommandHandler:
+    """ CommandHandler - Handles the execution and validation of commands.
 
     Extended Summary:
-    The `DoxHub` class is designed to handle the command-line interface for the DoxHub tool. 
-    It manages user interactions, processes commands, and provides a prompt similar to a 
-    terminal shell. Upon initialization, it gathers system information, such as the device name 
-    and username, and starts the command input loop.
+    The `CommandHandler` class is responsible for managing and executing commands provided by the user. 
+    It contains methods to check if a command is valid and to execute commands from either a standard 
+    command set or special commands.
+
+    Attributes:
+        commands (dict): A dictionary of standard commands and their corresponding functions.
+        special_commands (dict): A dictionary of special commands and their corresponding functions.
+
+    Methods:
+        is_valid_command: Check if the command is valid.
+        execute_command: Execute the provided command.
+    """
+    
+    def __init__(self) -> None:
+        """__init__ - Initialize the CommandHandler class.
+
+        Extended Summary:
+        This constructor initializes the `CommandHandler` with predefined commands and special commands.
+        """
+        
+        self.commands = commands
+        self.special_commands = special_commands
+        
+    def is_valid_command(self, command) -> bool:
+        """is_valid_command - Check if the command is valid.
+
+        Extended Summary:
+        This method verifies whether the provided command exists in either the standard command list or 
+        the special commands list.
+
+        Arguments:
+            command {str} -- The command string to validate.
+
+        Returns:
+            bool -- True if the command is valid, False otherwise.
+        """
+        
+        return command in self.commands or command in self.special_commands
+    
+    def execut_command(self, command):
+        """execut_command - Execute the provided command.
+
+        Extended Summary:
+        This method executes the command by checking if it belongs to special commands or standard commands 
+        and then calling the respective function.
+
+        Arguments:
+            command {str} -- The command to execute.
+
+        Returns:
+            None -- The result of the command execution or function call.
+        """
+        
+        if command in self.special_commands:
+            return self.special_commands[command]()
+        return QueryResult(command, self.commands[command])
+
+
+class DoxHub:
+    """ DoxHub - Main class to manage the user interface and command execution.
+
+    Extended Summary:
+    The `DoxHub` class is the core of the application, responsible for managing the user interface, 
+    handling the input loop, and coordinating with the `CommandHandler` to process and execute user commands.
 
     Attributes:
         device_name (str): The hostname of the device.
         user_name (str): The username of the current logged-in user.
         directory (str): The current working directory.
-        prompt (str): The command prompt string displayed to the user.
+        command_handler (CommandHandler): An instance of CommandHandler to manage commands.
 
     Methods:
-        call_command: Continuously prompt the user for commands and execute them.
-        get_command: Determine and execute the appropriate command based on user input.
-        find_command: Check if the entered command is valid.
+        display_prompt: Generate the command prompt string.
+        run: Start the command input loop.
+        process_command: Process and execute the user's command.
     """
     
     def __init__(self):
         """__init__ - Initialize the DoxHub class.
 
         Extended Summary:
-        This constructor initializes the `DoxHub` object by setting up essential attributes 
-        like `device_name`, `user_name`, and `directory`. It then calls the `call_command` 
-        method to begin processing user commands from the command-line interface.
+        This constructor initializes the `DoxHub` object by setting up system-related attributes and 
+        an instance of `CommandHandler` to manage user commands. It then starts the command input loop.
         """
 
         self.device_name = socket.gethostname()
         self.user_name = os.getlogin()
         self.directory = os.path.abspath("")
-        self.prompt = ""
+        self.command_handler = CommandHandler()
 
-        self.call_command()
-
-    def call_command(self):
-        """call_command - Start the command input loop.
+        self.run()
+        
+    def display_prompt(self) -> str:
+        """display_prompt - Generate the command prompt string.
 
         Extended Summary:
-        This method continuously prompts the user to enter a command. It constructs the command prompt 
-        using the system's username, device name, and current directory. The input is then processed by 
-        the `get_command` method. The loop runs until the user interrupts it with a keyboard signal (Ctrl+C).
-        """
+        This method generates and returns a string representing the command prompt, which includes 
+        the username, device name, and current directory, formatted with color codes.
+        
+        Returns:
+            str -- The formatted command prompt string.
+        """    
+    
+        return (f"\n┌──({Fore.BLUE}{Style.BRIGHT}{self.user_name}@{self.device_name}{Style.RESET_ALL}"
+                f"{Fore.RESET})-[{Fore.BLUE}{Style.BRIGHT}{self.directory}{Style.RESET_ALL}{Fore.RESET}]"
+                f"\n└─{Fore.BLUE}{Style.BRIGHT}$ {Style.RESET_ALL}{Fore.RESET}")
 
+    def run(self):
+        """run - Start the command input loop.
+
+        Extended Summary:
+        This method initiates an infinite loop, prompting the user to enter commands, which are then 
+        processed and executed. The loop can be terminated by a keyboard interrupt (Ctrl+C).
+        """
+        
         try:
             while True:
-                self.prompt = input(f"\n┌──({Fore.BLUE}{Style.BRIGHT}{self.user_name}@{self.device_name}{Style.RESET_ALL}"
-                                    f"{Fore.RESET})-[{Fore.BLUE}{Style.BRIGHT}{self.directory}{Style.RESET_ALL}{Fore.RESET}]"
-                                    f"\n└─{Fore.BLUE}{Style.BRIGHT}$ {Style.RESET_ALL}{Fore.RESET}")
-                self.get_command()
+                command = input(self.display_prompt())
+                self.process_command(command)
         except KeyboardInterrupt:
-            exit("\n")
+            print("\nExiting DoxHub...")
 
-    def get_command(self):
-        """get_command  Process and execute the user's command.
-
-        Extended Summary:
-        This method checks if the command entered by the user is valid using the `find_command` method.
-        If valid, it either executes a special command or returns a query result based on the command type.
-
-        Returns:
-            None -- Executes the command or returns a result based on the input.
-        """
-        if self.find_command():
-            if isinstance(self.prompt, str):
-                return special_commands[self.prompt]()
-            return QueryResult(self.prompt, commands[self.prompt])
-    
-    def find_command(self) -> bool:
-        """find_command Search for the command entered by the user.
+    def process_command(self, command):
+        """process_command - Process and execute the user's command.
 
         Extended Summary:
-        This method determines whether the command entered by the user is valid by checking 
-        against predefined commands and special commands. It also handles user input errors 
-        by prompting for valid input if necessary.
+        This method processes the command entered by the user. It checks if the command is valid 
+        using the `CommandHandler` and executes it. If the command is invalid, an error message 
+        is displayed.
 
-        Returns:
-            bool -- True if the command is found; False otherwise.
+        Arguments:
+            command {str} -- The command entered by the user.
         """
-
-        if self.prompt not in special_commands:
-            try:
-                self.prompt = int(self.prompt)
-            except ValueError:
-                print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid value.")
-                return False
-
-        if self.prompt in commands or self.prompt in special_commands:
-            return True
-
-        print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Please enter a valid command.")
-        return False
+        
+        if self.command_handler.is_valid_command(command):
+            self.command_handler.execut_command(command)
+        else:
+            print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Invalid command. Please try again.")
 
 
 def center_text(text: str):
@@ -271,11 +320,11 @@ def main():
     print(f"\n{Fore.RESET}")
 
     for count in range(1, 10):
-        message = f"{Fore.BLUE}({Fore.RESET}0{count}{Fore.BLUE}){Fore.RESET} > {commands[count]}"
+        message = f"{Fore.BLUE}({Fore.RESET}0{count}{Fore.BLUE}){Fore.RESET} > {commands[str(count)]}"
         
-        if count + 9 in commands:
+        if str(count + 9) in commands:
             space = " " * (50 - len(message))
-            message = message + f"{space}{Fore.BLUE}({Fore.RESET}{count + 9}{Fore.BLUE}){Fore.RESET} > {commands[count + 9]}"
+            message = message + f"{space}{Fore.BLUE}({Fore.RESET}{count + 9}{Fore.BLUE}){Fore.RESET} > {commands[str(count + 9)]}"
         print(message)
         
     if latest_version:

@@ -82,4 +82,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/KDUser12/Dox
 
 ## Authors (Only I KDUser worked on xvirus!)
 
-* **KDUser** - *Fully Maintaining Xvirus*
+* **KDUser** - *Fully Maintaining DoxHub*

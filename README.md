@@ -28,7 +28,7 @@
 ## About The Project
 
 <p align="center">
-  <img alt="preview" src="https://github.com/KDUser12/OsHUB/blob/master/.github/assets/Screenshot%20from%202024-08-08%2015-50-09.png?raw=true">
+  <img alt="preview" src="https://github.com/KDUser12/OsHUB/blob/master/.github/assets/Screenshot%20from%202024-08-09%2017-49-08.png?raw=true">
 </p>
 
 OsHUB is an open source project based on the Python language listing over 40 sites and tools to help anyone interested in Osint. Each tool offered is free and open source, guaranteeing you a good experience and good security.

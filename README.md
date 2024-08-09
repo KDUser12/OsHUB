@@ -80,6 +80,6 @@ By using OsHUB you are responsible for acts or deviations from the program that 
 
 Distributed under the MIT License. See [LICENSE](https://github.com/KDUser12/OsHUB/blob/master/LICENSE) for more information.
 
-## Authors (Only I KDUser worked on xvirus!)
+## Authors (Only I KDUser worked on OsHUB!)
 
 * **KDUser** - *Fully Maintaining OsHUB*

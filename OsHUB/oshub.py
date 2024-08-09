@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-DoxHub
+OsHUB
 
 This Module contains a list of tools and sites to find personal
 information about a target person.
 
 ~~~~~~~~~~~~~~~~~~~~~
-Source: https://github.com/KDUser12/DoxHub
+Source: https://github.com/KDUser12/OsHUB
 (c) 2024 KDUser12
 Released under the MIT License
 """
@@ -24,31 +24,43 @@ from result import QueryResult
 
 
 def about_command():
-    """about_command - Display information about the DoxHub Module.
+    """about_command - Display information about the OsHUB Module.
     
     Extended Summary:
-    This function prints out a brief description of the DoxHub module. 
-    DoxHub contains a list of tools and sites designed to help find personal 
+    This function prints out a brief description of the OsHUB module. 
+    OsHUB contains a list of tools and sites designed to help find personal 
     information about a target person. It is intended to provide users with 
     information on the purpose and usage of the module.
     """
     
-    print("""DoxHub module.
-DoxHub contains a list of tools and sites to find personal
+    print("""OsHUB module.
+OsHUB contains a list of tools and sites to find personal
 information about a target person.""")
 
 
 def changelog_command():
-    """changelog_command - Display the changelog for the DoxHub Module.
+    """changelog_command - Display the changelog for the OsHUB Module.
     
     Extended Summary:
-    This function prints the patch notes for the DoxHub module. It includes 
+    This function prints the patch notes for the OsHUB module. It includes 
     information about new features, bug fixes, changes, and removed features 
     for version 3.0 as of 08-08-2024. The changelog is formatted to highlight 
     various sections such as new features, bug fixes, changes, and removals.
     """
     
-    print(f"""{Style.BRIGHT}Patch Notes - DoxHub{Style.NORMAL}
+    print(f"""{Style.BRIGHT}Patch Notes - OsHUB{Style.NORMAL}
+{Style.BRIGHT}Version 3.1 - 08-09-2024{Style.NORMAL}
+{Style.DIM}Changes{Style.NORMAL}
+- The Source File was renamed to `OsHUB`.
+- Change of name `DoxHub` to `OsHUB` in changelogs.
+- Change of name `DoxHub` to `OsHUB` in `README.md`
+- `PATCH_NOTES.md` file renamed to `CHANGELOGS.md`
+- Changed name from `DoxHub` to `OsHUB` throughout source code.
+- `doxhub.py` file renamed to `oshub.py`
+- Change of title.
+- Changing the screenshot.
+- Update changelogs
+
 {Style.BRIGHT}Version 3.0 - 08-08-2024{Style.NORMAL}
 {Style.DIM}New Features{Style.NORMAL}
 - Checking operating system compatibility.
@@ -171,11 +183,11 @@ class CommandHandler:
         return QueryResult(command, self.commands[command])
 
 
-class DoxHub:
-    """ DoxHub - Main class to manage the user interface and command execution.
+class OsHUB:
+    """ OsHUB - Main class to manage the user interface and command execution.
 
     Extended Summary:
-    The `DoxHub` class is the core of the application, responsible for managing the user interface, 
+    The `OsHUB` class is the core of the application, responsible for managing the user interface, 
     handling the input loop, and coordinating with the `CommandHandler` to process and execute user commands.
 
     Attributes:
@@ -191,10 +203,10 @@ class DoxHub:
     """
     
     def __init__(self):
-        """__init__ - Initialize the DoxHub class.
+        """__init__ - Initialize the OsHUB class.
 
         Extended Summary:
-        This constructor initializes the `DoxHub` object by setting up system-related attributes and 
+        This constructor initializes the `OsHUB` object by setting up system-related attributes and 
         an instance of `CommandHandler` to manage user commands. It then starts the command input loop.
         """
 
@@ -233,7 +245,7 @@ class DoxHub:
                 command = input(self.display_prompt())
                 self.process_command(command)
         except KeyboardInterrupt:
-            print("\nExiting DoxHub...")
+            print("\nExiting OsHUB...")
 
     def process_command(self, command):
         """process_command - Process and execute the user's command.
@@ -314,18 +326,18 @@ def clear_output():
 
 def main():
     current_version = f"{__version__}"
-    latest_version = check_versions("doxhub", current_version)
+    latest_version = check_versions("OsHUB", current_version)
     clear_output()
     
     center_text(f"""{Fore.BLUE}
                 
                 
-██████╗  ██████╗ ██╗  ██╗██╗  ██╗██╗   ██╗██████╗ 
-██╔══██╗██╔═══██╗╚██╗██╔╝██║  ██║██║   ██║██╔══██╗
-██║  ██║██║   ██║ ╚███╔╝ ███████║██║   ██║██████╔╝
-██║  ██║██║   ██║ ██╔██╗ ██╔══██║██║   ██║██╔══██╗
-██████╔╝╚██████╔╝██╔╝ ██╗██║  ██║╚██████╔╝██████╔╝
-╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+ ██████╗ ███████╗██╗  ██╗██╗   ██╗██████╗ 
+██╔═══██╗██╔════╝██║  ██║██║   ██║██╔══██╗
+██║   ██║███████╗███████║██║   ██║██████╔╝
+██║   ██║╚════██║██╔══██║██║   ██║██╔══██╗
+╚██████╔╝███████║██║  ██║╚██████╔╝██████╔╝
+ ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
 """)
     
     right_text(f"> [TM] Made by KDUser12\n> [?] {current_version} Changelog", f"About [:] <\nExit [!] <")
@@ -340,6 +352,6 @@ def main():
         print(message)
         
     if latest_version:
-        print("\nInstall the latest DoxHub for new features and improvements! https://github.com/KDUser12/DoxHub/releases/latest")
+        print("\nInstall the latest OsHUB for new features and improvements! https://github.com/KDUser12/OsHUB/releases/latest")
 
-    DoxHub()
+    OsHUB()

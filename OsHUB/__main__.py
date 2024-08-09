@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-DoxHub
+OsHUB
 
 This Module contains a list of tools and sites to find personal
 information about a target person.
 
 ~~~~~~~~~~~~~~~~~~~~~
-Source: https://github.com/KDUser12/DoxHub
+Source: https://github.com/KDUser12/OsHUB
 (c) 2024 KDUser12
 Released under the MIT License
 """
@@ -26,5 +26,5 @@ if __name__ == '__main__':
     except EnvironmentError as error:
         exit(f"Error: {error}")
 
-    import doxhub
-    doxhub.main()
+    import oshub
+    oshub.main()

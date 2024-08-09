@@ -49,6 +49,8 @@ def changelog_command():
     """
     
     print(f"""{Style.BRIGHT}Patch Notes - DoxHub{Style.NORMAL}
+{Style.BRIGHT}Version 3.1 - 08-09-2024{Style.NORMAL}
+
 {Style.BRIGHT}Version 3.0 - 08-08-2024{Style.NORMAL}
 {Style.DIM}New Features{Style.NORMAL}
 - Checking operating system compatibility.

@@ -8,5 +8,5 @@ Provide a single source of version information.
 import datetime
 
 
-__version__ = "3.0-release"
-release_date = datetime.date(2024, 8, 7)
+__version__ = "3.1-release"
+release_date = datetime.date(2024, 8, 9)

@@ -1,4 +1,6 @@
 # **Patch Notes - DoxHub**
+## **Version 3.1 - 08-09-2024**
+
 ## **Version 3.0 - 08-08-2024**
 ### *New Features*
 - Checking operating system compatibility.

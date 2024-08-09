@@ -10,12 +10,12 @@
 </p>
 
 <p align="center">
-  <img alt="Downloads" src="https://img.shields.io/github/downloads/KDUser12/DoxHub/total">
+  <img alt="Downloads" src="https://img.shields.io/github/downloads/KDUser12/OsHUB/total">
   <img alt="Contributors" src="https://img.shields.io/github/contributors/KDUser12/OsHUB?color=dark-green">
-  <img alt="Forks" src="https://img.shields.io/github/forks/KDUser12/DoxHub?style=social">
-  <img alt="Stargazers" src="https://img.shields.io/github/stars/KDUser12/DoxHub?style=social">
+  <img alt="Forks" src="https://img.shields.io/github/forks/KDUser12/OsHUB?style=social">
+  <img alt="Stargazers" src="https://img.shields.io/github/stars/KDUser12/OsHUB?style=social">
   <img alt="Issues" src="https://img.shields.io/github/issues/KDUser12/OsHUB">
-  <img alt="License" src="https://img.shields.io/github/license/KDUser12/DoxHub">
+  <img alt="License" src="https://img.shields.io/github/license/KDUser12/OsHUB">
 </p>
 
 <p align="center">

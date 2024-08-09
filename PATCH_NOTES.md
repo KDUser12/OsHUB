@@ -1,5 +1,10 @@
-# **Patch Notes - DoxHub**
+# **Patch Notes - OsHUB**
 ## **Version 3.1 - 08-09-2024**
+### *Changes*
+- The Source File was renamed to `OsHUB`.
+- Change of name `DoxHub` to `OsHUB` in changelogs.
+- Change of name `DoxHub` to `OsHUB` in `README.md`
+
 
 ## **Version 3.0 - 08-08-2024**
 ### *New Features*

@@ -61,4 +61,4 @@ class OsHUB:
             print(message)
 
         if self.latest_version:
-            print(f"\nInstall the latest OsHUB for new features and improvements! {forge_api_latest_release}")
+            print(f"\nInstall the latest OsHUB for new features and improvements! https://github.com/kduser12/oshub/releases/latest")

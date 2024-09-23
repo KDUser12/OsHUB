@@ -57,3 +57,6 @@ if __name__ == '__main__':
         exit(1)
 
     check_and_install_dependencies(['requirements.txt'])
+
+    import core
+    core.OsHUB()

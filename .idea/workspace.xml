@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b2c0d8c-c5ab-4294-85b2-ca9021efb59d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/utils/_os.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/utils/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/utils/packages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/oshub/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oshub/core/management/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oshub/utils/alignment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oshub/utils/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oshub/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/oshub/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oshub/utils/packages.py" beforeDir="false" afterPath="$PROJECT_DIR$/oshub/utils/packages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

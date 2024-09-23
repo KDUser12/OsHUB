@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
-import pkg_resources  # type: ignore
+import pkg_resources
 import subprocess
 import sys
 

@@ -19,6 +19,7 @@ from colorama import Fore, Style
 
 from __init__ import __version__, forge_api_latest_release
 from core.management.manager import commands
+from core.management import CommandHandler
 
 from utils.alignment import center, alignment
 from utils.update import check_versions
@@ -33,6 +34,7 @@ class OsHUB:
     def __init__(self) -> None:
         self.current_version = __version__
         self.latest_version = check_versions
+        self.command_handler = CommandHandler()
 
         self.device_name = socket.gethostname()
         self.user_name = os.getlogin()
@@ -62,3 +64,24 @@ class OsHUB:
 
         if self.latest_version:
             print(f"\nInstall the latest OsHUB for new features and improvements! https://github.com/kduser12/oshub/releases/latest")
+
+        self.start_CIL()
+
+    def display_prompt(self) -> str:
+        return (f"\n┌──({Fore.BLUE}{Style.BRIGHT}{self.user_name}@{self.device_name}{Style.RESET_ALL}"
+                f"{Fore.RESET})-[{Fore.BLUE}{Style.BRIGHT}{self.directory}{Style.RESET_ALL}{Fore.RESET}]"
+                f"\n└─{Fore.BLUE}{Style.BRIGHT}$ {Style.RESET_ALL}{Fore.RESET}")
+
+    def start_CIL(self):  # CIL --> Command Input Loop
+        try:
+            while True:
+                command = input(self.display_prompt())
+                self.process_command(command)
+        except KeyboardInterrupt:
+            print("\nExisting OsHUB...")
+
+    def process_command(self, command):
+        if self.command_handler.is_valid_command(command):
+            self.command_handler.execut_command(command)
+        else:
+            print(f"{Fore.RED}[{Fore.RESET}!{Fore.RED}]{Fore.RESET} Invalid command. Please try again.")

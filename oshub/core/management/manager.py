@@ -1,3 +1,5 @@
+from core.management.commands.special_commands import about_command, exit_command, changelog_command
+
 commands = {
     "1": "Username",
     "2": "Email Address",
@@ -5,7 +7,7 @@ commands = {
     "4": "Telephone Numbers",
     "5": "Exploits",
     "6": "Archives",
-    "7": "Dark Web",
+    "7": "Browser",
     "8": "Transportation",
     "9": "Data Leaks",
     "10": "Phishing",
@@ -18,7 +20,7 @@ commands = {
 }
 
 special_commands = {
-    ":": None,
-    "!": None,
-    "?": None
+    ":": about_command,
+    "!": exit_command,
+    "?": changelog_command
 }

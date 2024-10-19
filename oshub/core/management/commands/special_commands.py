@@ -1,4 +1,26 @@
-# **ChangeLog - OsHUB**
+#!/usr/bin/env python3
+
+"""
+OsHUB
+
+OsHUB is a program referencing several tools and websites to make
+Osint for legal purposes.
+
+~~~~~~~~~~~~~~~~~~~~~
+Source: https://github.com/KDUser12/OsHUB
+(c) 2024 KDUser12
+Released under the Apache License 2.0
+"""
+
+from __init__ import __longname__, __version__
+
+def about_command():
+    print(f"{__longname__} (Version {__version__})\n"
+          f"OsHUB is a program referencing several tools and websites to make\n"
+          f"Osint for legal purposes.")
+
+def changelog_command():
+    print("""# **ChangeLog - OsHUB**
 ## **Version 4.0 - 09-23-2024**
 ### *New Features*
 - Adding a log system.
@@ -26,4 +48,7 @@ prise
 
 ### *Internal change*
 - Changed VSCode text editor to PyCharm Community Edition from JetBrain.
-- Change of project license to `Apache License 2.0`.
+- Change of project license to `Apache License 2.0`.""")
+
+def exit_command():
+    exit("Exiting OsHUB...")

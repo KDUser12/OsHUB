@@ -1,7 +1,10 @@
+import logging
 import requests
 
+from __init__ import forge_api_latest_release
 
-def get_latest_version(repository, current_version):
+
+def get_latest_version(current_version):
     """get_latest_version - Retrieve the latest release version from a GitHub repository.
 
     Extended Summary:
@@ -18,22 +21,25 @@ def get_latest_version(repository, current_version):
     Returns:
         str or None -- The latest version if a new version is available, False if up-to-date, or None if there is an error.
     """
-    
-    url = f"https://api.github.com/repos/kduser12/{repository}/releases/latest"
-    
+
+    url = forge_api_latest_release
+
     try:
+        logging.debug(f"GET request sent to URL: {url}")
         response = requests.get(url)
         response.raise_for_status()  # Check if the request was successful
         data = response.json()
         latest_version = data.get("tag_name", "undefined")
-        
+
+        logging.debug(f"Latest version retrieved: {latest_version}")
+
     except requests.exceptions.RequestException as error:
-        print(f"HTTP request error: {error}")
+        logging.error(f"HTTP request error: {error}")
         return None
-    
+
     return get_result_version(current_version, latest_version)
-    
-    
+
+
 def get_result_version(current_version, latest_version):
     """get_result_version - Compare current version with the latest version to determine update status.
 
@@ -49,14 +55,17 @@ def get_result_version(current_version, latest_version):
     Returns:
         str, bool or None -- The latest version if a new version is available, False if up-to-date, or None if there is an error.
     """
-    
+
+    logging.debug(f"Comparing current version ({current_version}) with the latest version ({latest_version})")
+
     if current_version == latest_version:
+        logging.info(f"Current version ({current_version}) is up to date.")
         return False
     else:
         return latest_version
 
 
-def check_versions(repository, current_version):
+def check_versions(current_version):
     """check_versions - Check the version for a single repository.
 
     Extended Summary:
@@ -71,6 +80,7 @@ def check_versions(repository, current_version):
     Returns:
         str or None -- The latest version if a new version is available and valid, otherwise None.
     """
-    
-    result = get_latest_version(repository, current_version)
+
+    logging.debug(f"Checking version for repository {forge_api_latest_release}")
+    result = get_latest_version(current_version)
     return result

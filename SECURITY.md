@@ -5,7 +5,8 @@
 Project versions currently supported by security updates.
 
 
-- `3.x-release` : True
+- `4.0.x-release` : True
+- `3.x-release` : False
 - `2.0bx`  : False
 - `1.x`    : False
 - `0.1b0`  : False

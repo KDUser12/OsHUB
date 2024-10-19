@@ -3,7 +3,7 @@
   <h1 align="center">OsHUB</h1>
 
   <p align="center">
-    This module contains a list of tools and sites to find personal information about a target person. 
+    OsHUB is a program referencing several tools and websites to make Osint for legal purposes. 
     <br/>
     <br/>
   </p>
@@ -20,7 +20,6 @@
 
 <p align="center">
   <a href="https://www.codefactor.io/repository/github/KDUser12/OsHUB">
-    <img src="https://www.codefactor.io/repository/github/DXVVAY/xvirus-tools/badge" alt="CodeFactor" />
   </a>
     <img alt="lines" src="https://sloc.xyz/github/KDUser12/OsHUB">
 </p>
@@ -28,7 +27,7 @@
 ## About The Project
 
 <p align="center">
-  <img alt="preview" src="https://github.com/KDUser12/OsHUB/blob/master/.github/assets/Screenshot%20from%202024-08-09%2017-49-08.png?raw=true">
+  <img alt="preview" src="https://github.com/KDUser12/OsHUB/blob/master/.github/assets/241019_19h13m46s_screenshot.png?raw=true">
 </p>
 
 OsHUB is an open source project based on the Python language listing over 40 sites and tools to help anyone interested in Osint. Each tool offered is free and open source, guaranteeing you a good experience and good security.
@@ -63,11 +62,7 @@ Then enter the directory:
 ```shell
 cd OsHUB
 ```
-Install the modules:
-```shell
-pip3 install -r requirements.txt
-```
-Finally just run `python3 OsHUB/` and use OsHUB.
+Finally just run `python3 oshub` and use OsHUB.
 
 ## Disclaimer
 
@@ -78,7 +73,8 @@ By using OsHUB you are responsible for acts or deviations from the program that 
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/KDUser12/OsHUB/blob/master/LICENSE) for more information.
+Distributed under the Apache v2.0
+License. See [LICENSE](https://github.com/KDUser12/OsHUB/blob/master/LICENSE) for more information.
 
 ## Authors (Only I KDUser worked on OsHUB!)
 

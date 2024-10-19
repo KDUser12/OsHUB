@@ -1,38 +1,15 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import platform
-import subprocess
+import logging
 import re
-
-
-def get_linux_version():
-    """get_linux_version - Get a simplified version string for Linux using lsb_release.
-
-    Extended Summary:
-    This function runs the 'lsb_release -r' command to fetch the Linux distribution
-    version. It parses the output to extract and return the version number. If the
-    command fails, it logs an error and returns None.
-
-    Returns:
-        str -- The Linux version string if successfully retrieved, otherwise None.
-    """
-    
-    try:
-        result = subprocess.run(['lsb_release', '-r'], capture_output=True, text=True, check=True)
-        # Extract the version number from the output
-        version_line = result.stdout.strip().split('\n')[0]
-        version = version_line.split(':')[1].strip()
-    except subprocess.CalledProcessError as error:
-        raise EnvironmentError(f"Failed to get Linux version: {error}")
-    return version
 
 
 def check_os_compatibility():
     """check_os_compatibility - Check the compatibility of the current operating system.
 
     Extended Summary:
-    This function determins the current operating system and version, logging the
+    This function determines the current operating system and version, logging the
     detected OS details. It then verifies whether the OS is supported and if the
     version meets the minimum required version for the application. If the OS or
     version is not supported, it raises an EnvironmentError with an appropriate
@@ -42,34 +19,67 @@ def check_os_compatibility():
         EnvironmentError: If the OS is unsupported ot the version does not meet
         the minimum required version.
     """
-    
+
     os_name = platform.system()
+    os_release = platform.release()
+
+    # Extraction of the Linux kernel version (especially for Arch Linux and similar distros)
     if os_name == 'Linux':
-        os_version = get_linux_version()
-        if not os_version:
-            raise EnvironmentError("Unable to retrieve Linux version")
+        os_version = extract_kernel_version(os_release)
     else:
         os_version = platform.version()
-    os_release = platform.release()
-    
+
+    logging.debug(f"Detected operating system: {os_name}")
+    logging.debug(f"Detected version: {os_version}")
+    logging.debug(f"Detected release: {os_release}")
+
     # Checking supported operating systems
     supported_os = {
         'Windows': {'min_version': '10.0', 'patterns': [r'^[0-9]+\.[0-9]+$']},
-        'Linux': {'min_version': '4.0', 'patterns': [r'^[0-9]+\.[0-9]+$', r'^[0-9]+\.[0-9]+\.[0-9]+$']}
+        'Linux': {'min_version': '4.0', 'patterns': [r'^[0-9]+\.[0-9]+$', r'^[0-9]+\.[0-9]+\.[0-9]+$']},
+        'Darwin': {"min_version": '19.0', 'patterns': [r'^[0-9]+\.[0-9]+$']}
     }
-    
+
     if os_name not in supported_os:
+        logging.error(f"Unsupported operating system: {os_name}")
         raise EnvironmentError(f"Unsupported operating system: {os_name}")
-    
+
     os_info = supported_os[os_name]
     min_version = os_info['min_version']
-    
+
+    logging.debug(f"Minimum required version for {os_name}: {min_version}")
+
     # Checking the OS version
     if not any(re.match(pattern, os_version) for pattern in os_info['patterns']):
+        logging.error(f"Unrecognized OS version: {os_version}")
         raise EnvironmentError(f"Unrecognized OS version: {os_version}")
-    
+
     if not is_version_compatible(os_version, min_version):
+        logging.error(f"Minimum required version for {os_name} is {min_version}, but you have {os_version}")
         raise EnvironmentError(f"Minimum required version for {os_name} is {min_version}, but you have {os_version}")
+
+    logging.info(f"Operating system: {os_name} {os_version} ({os_release})")
+
+
+def extract_kernel_version(os_release):
+    """Extracts the kernel version from the os_release string.
+
+    Arguments:
+        os_release {str} -- The original OS release string.
+
+    Returns:
+        str -- The extracted version in the format X.Y.Z or X.Y.
+    """
+
+    # Find the first instance of the version in X.Y.Z or X.Y format.
+    match = re.search(r'\d+\.\d+(\.\d+)?', os_release)
+    if match:
+        kernel_version = match.group(0)
+        logging.debug(f"Extracted kernel version: {kernel_version}")
+        return kernel_version
+    else:
+        logging.error(f"Could not extract kernel version from: {os_release}")
+        return os_release  # Return the original version if no correspondence is found
 
 
 def is_version_compatible(current_version, min_version):
@@ -92,6 +102,7 @@ def is_version_compatible(current_version, min_version):
 
     current_version_tuple = version_tuple(current_version)
     min_version_tuple = version_tuple(min_version)
-    
+
+    logging.debug(f"Comparing versions: current ({current_version_tuple}) >= minimum ({min_version_tuple})")
+
     return current_version_tuple >= min_version_tuple
-    

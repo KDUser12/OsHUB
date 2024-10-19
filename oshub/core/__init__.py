@@ -62,8 +62,8 @@ class OsHUB:
                 message += f"{space}{Fore.BLUE}({Fore.RESET}{x + 9}{Fore.BLUE}){Fore.RESET} > {commands[str(x + 9)]}"
             print(message)
 
-        if self.latest_version:
-            print(f"\nInstall the latest OsHUB for new features and improvements! https://github.com/kduser12/oshub/releases/latest")
+        # if self.latest_version:
+        #     print(f"\nInstall the latest OsHUB for new features and improvements! https://github.com/kduser12/oshub/releases/latest")
 
         self.start_CIL()
 

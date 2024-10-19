@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b2c0d8c-c5ab-4294-85b2-ca9021efb59d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/oshub/core/QueryResult.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/core/management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/core/management/commands/special_commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/resources/tools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oshub/resources/websites.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/assets/241019_19h13m46s_screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oshub/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/oshub/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oshub/core/management/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/oshub/core/management/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +44,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "release/v4.0",
-    "last_opened_file_path": "/home/kduser/Projects/OsHUB/oshub",
+    "last_opened_file_path": "/home/kduser/Projects/OsHUB/.github/assets",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Master" type="PythonConfigurationType" factoryName="Python">
       <module name="OsHUB" />

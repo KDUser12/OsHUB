@@ -50,7 +50,7 @@ if __name__ == '__main__':
     logging.debug(f"Required versions : {required_versions}")
 
     try:
-        check_os_compatibility()
+        # check_os_compatibility()
         check_python_version(required_versions)
     except EnvironmentError as error:
         logging.error(f"Error: {error}")
